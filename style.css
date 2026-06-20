@@ -1,4 +1,4 @@
-/* ========== VARIABLES GLOBALES ========== */
+﻿/* ========== VARIABLES GLOBALES ========== */
 :root {
   /* Colores */
   --color-bg-primary: #130c0d;
@@ -23,7 +23,7 @@
   --spacing-2xl: 4rem;
   --spacing-3xl: 6rem;
   
-  /* Tipografía */
+  /* TipografÃ­a */
   --font-primary: 'Konkhmer Sleokchher-Regular', Helvetica, system-ui, -apple-system, sans-serif;
   --font-secondary: 'Kosugi Maru-Regular', Helvetica, system-ui, -apple-system, sans-serif;
   --font-tertiary: 'Inter-Regular', Helvetica, system-ui, -apple-system, sans-serif;
@@ -78,7 +78,7 @@ button {
   width: 100%;
 }
 
-/* ========== TIPOGRAFÍA ========== */
+/* ========== TIPOGRAFÃA ========== */
 .section-header {
   text-align: center;
   margin-bottom: var(--spacing-2xl);
@@ -223,7 +223,7 @@ button {
   color: var(--color-primary);
 }
 
-/* Menú hamburguesa */
+/* MenÃº hamburguesa */
 .header__menu-btn {
   display: none;
   flex-direction: column;
@@ -355,75 +355,97 @@ button {
   line-height: 1.6;
 }
 
-/* Vault Status */
-.vault-status__card {
+/* Hero Video */
+.hero__video {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+
+.hero__video-frame {
+  width: 100%;
   background-color: rgba(32, 25, 25, 0.9);
   border-radius: var(--border-radius-md);
-  padding: var(--spacing-lg);
+  padding: var(--spacing-md);
   backdrop-filter: blur(10px);
+  box-shadow: 0 20px 60px rgba(0, 0, 0, 0.25);
 }
 
-.vault-status__header {
-  height: 10px;
-  background: linear-gradient(90deg, rgba(255, 180, 184, 0.8), rgba(229, 195, 132, 0.8));
-  border-radius: 70px 70px 0 0;
-  margin: -24px -24px 0 -24px;
+.hero__video-poster {
+  position: relative;
+  display: block;
+  width: 100%;
+  padding: 0;
+  border: 0;
+  cursor: pointer;
+  appearance: none;
+  border-radius: calc(var(--border-radius-md) - 4px);
+  overflow: hidden;
+  background: #000;
 }
 
-.vault-status__title {
-  font-family: var(--font-primary);
-  font-size: 2rem;
-  margin: var(--spacing-lg) 0;
+.hero__video-poster img {
+  width: 100%;
+  aspect-ratio: 16 / 9;
+  object-fit: cover;
 }
 
-.vault-status__metrics {
-  display: grid;
-  grid-template-columns: 1fr 1fr;
-  gap: var(--spacing-md);
-  margin-bottom: var(--spacing-lg);
+.hero__video-poster::after {
+  content: '';
+  position: absolute;
+  inset: 0;
+  background: linear-gradient(180deg, rgba(0, 0, 0, 0.15), rgba(0, 0, 0, 0.45));
 }
 
-.metric-card {
-  background-color: #302828;
-  padding: var(--spacing-md);
-  border-radius: var(--border-radius-sm);
-}
-
-.metric-card__label {
+.hero__video-play {
+  position: absolute;
+  top: 50%;
+  left: 50%;
+  transform: translate(-50%, -50%);
+  z-index: 1;
+  padding: 0.85rem 1.2rem;
+  border-radius: 999px;
+  background: rgba(19, 12, 13, 0.9);
+  color: var(--color-text-white);
   font-family: var(--font-secondary);
   font-size: 0.875rem;
-  color: var(--color-text-gray);
-  margin-bottom: var(--spacing-xs);
+  border: 1px solid rgba(227, 194, 130, 0.35);
+  box-shadow: 0 10px 30px rgba(0, 0, 0, 0.35);
 }
 
-.metric-card__value {
-  font-family: var(--font-primary);
-  font-size: clamp(1.5rem, 4vw, 2.5rem);
-  margin-bottom: var(--spacing-xs);
+.hero__video-poster:hover .hero__video-play {
+  background: rgba(32, 25, 25, 0.98);
 }
 
-.metric-card__status {
+.hero__video-link {
+  display: inline-flex;
+  margin-top: var(--spacing-sm);
   font-family: var(--font-secondary);
   font-size: 0.875rem;
-  color: var(--color-secondary-light);
+  color: var(--color-primary);
 }
 
-.metric-card__status--success {
-  color: #4caf50;
+.hero__video-link:hover {
+  color: var(--color-primary-dark);
 }
 
-.vault-status__updates {
-  display: flex;
-  flex-direction: column;
-  gap: var(--spacing-sm);
+.hero__video-frame iframe {
+  display: block;
+  width: 100%;
+  aspect-ratio: 16 / 9;
+  border: 0;
+  border-radius: calc(var(--border-radius-md) - 4px);
+  background: #000;
 }
 
-.vault-status__update {
-  background-color: #302828;
-  padding: var(--spacing-md);
-  border-radius: var(--border-radius-sm);
-  font-family: var(--font-secondary);
-  font-size: 0.875rem;
+@media (max-width: 968px) {
+  .hero__video {
+    order: 2;
+  }
+
+  .hero__video-frame {
+    padding: 0.75rem;
+  }
 }
 
 /* ========== PROBLEM SECTION ========== */
