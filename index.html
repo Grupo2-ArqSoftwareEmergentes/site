@@ -57,7 +57,7 @@
           <div class="hero__video">
             <div class="hero__video-frame">
               <button
-                class="hero__video-poster"
+                class="hero__video-poster js-video-poster"
                 type="button"
                 data-video-id="YPzIGrE_n94"
                 aria-label="Reproducir video de VineVault">
@@ -257,6 +257,61 @@
           </div>
         </div>
       </section>
+
+      <!-- ========== ABOUT THE TEAM SECTION ========== -->
+      <section class="team" id="equipo">
+        <div class="container">
+          <div class="team__grid">
+            <div class="team__content">
+              <p class="team__eyebrow">About the team</p>
+              <h2 class="team__title">Un equipo que une vino, diseño y tecnología</h2>
+              <p class="team__description">
+                Detrás de VineVault hay un equipo pequeño y multidisciplinario enfocado en crear experiencias claras,
+                confiables y elegantes para el monitoreo de cavas.
+              </p>
+
+              <div class="team__cards">
+                <article class="team-card">
+                  <h3 class="team-card__title">Visión de producto</h3>
+                  <p class="team-card__text">Convertir datos complejos en decisiones simples para coleccionistas y bodegas.</p>
+                </article>
+
+                <article class="team-card">
+                  <h3 class="team-card__title">Diseño y experiencia</h3>
+                  <p class="team-card__text">Interfaces limpias, directas y pensadas para usar en escritorio o móvil.</p>
+                </article>
+
+                <article class="team-card">
+                  <h3 class="team-card__title">Ingeniería IoT</h3>
+                  <p class="team-card__text">Sensores, conectividad y monitoreo en tiempo real para proteger cada botella.</p>
+                </article>
+              </div>
+            </div>
+
+            <div class="team__video">
+              <div class="team__video-frame">
+                <button
+                  class="team__video-poster js-video-poster"
+                  type="button"
+                  data-video-id="xKU-EHV8hpA"
+                  aria-label="Reproducir video sobre el equipo">
+                  <img
+                    src="https://img.youtube.com/vi/xKU-EHV8hpA/hqdefault.jpg"
+                    alt="Miniatura del video About the team">
+                  <span class="team__video-play">Ver video del equipo</span>
+                </button>
+                <a
+                  class="team__video-link"
+                  href="https://www.youtube.com/watch?v=xKU-EHV8hpA"
+                  target="_blank"
+                  rel="noopener noreferrer">
+                  Ver en YouTube
+                </a>
+              </div>
+            </div>
+          </div>
+        </div>
+      </section>
     </main>
 
     <!-- ========== FOOTER ========== -->
@@ -286,12 +341,12 @@
     }
 
     // Video de la hero: carga el iframe solo al hacer clic en la miniatura.
-    const heroVideoPoster = document.querySelector('.hero__video-poster');
+    const videoPosters = document.querySelectorAll('.js-video-poster');
 
-    if (heroVideoPoster) {
-      heroVideoPoster.addEventListener('click', () => {
-        const videoId = heroVideoPoster.dataset.videoId;
-        const frame = heroVideoPoster.closest('.hero__video-frame');
+    videoPosters.forEach((poster) => {
+      poster.addEventListener('click', () => {
+        const videoId = poster.dataset.videoId;
+        const frame = poster.closest('.hero__video-frame, .team__video-frame');
         const videoUrl = `https://www.youtube.com/watch?v=${videoId}`;
 
         if (!videoId || !frame) return;
@@ -311,7 +366,7 @@
           </iframe>
         `;
       });
-    }
+    });
   </script>
 </body>
 </html>
